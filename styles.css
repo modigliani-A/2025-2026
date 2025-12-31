@@ -137,7 +137,7 @@ body.intro-active {
 /* Desktop tweaks */
 @media (min-width: 768px) {
   .letter {
-    padding: 4rem;
+    padding: 4rem 0 0 0;
   }
 
   .intro h1 {
