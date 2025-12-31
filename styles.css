@@ -1,0 +1,169 @@
+:root {
+  --bg-dark: #0d0f14;
+  --bg-soft: #151823;
+  --paper: #f5f5f3;
+  --text-main: #1c1c1c;
+  --text-muted: #6e6e6e;
+  --accent: #c4ab73;
+}
+
+* {
+  box-sizing: border-box;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255,255,255,.2) transparent;
+}
+
+
+html {
+  height: 100%;
+}
+
+body {
+  min-height: 100%;
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  background: var(--bg-dark);
+  color: var(--text-main);
+  overflow-x: hidden;
+}
+
+body.intro-active {
+  overflow: hidden;
+}
+
+/* Ambient animated background */
+.background {
+  position: fixed;
+  inset: 0;
+  background: radial-gradient(
+    circle at top,
+    var(--bg-soft),
+    var(--bg-dark)
+  );
+  z-index: -1;
+  animation: breathe 12s ease-in-out infinite;
+}
+
+@keyframes breathe {
+  0%, 100% { filter: brightness(1); }
+  50% { filter: brightness(1.08); }
+}
+
+/* Intro screen */
+.intro {
+  height: 100vh;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: #fff;
+  cursor: pointer;
+  box-sizing: border-box;
+}
+
+
+.intro-year {
+  letter-spacing: 0.4em;
+  font-size: 0.9rem;
+  color: var(--accent);
+  margin-bottom: 1rem;
+}
+
+.intro h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.6rem;
+  margin-bottom: 1rem;
+}
+
+.intro p {
+  font-size: 0.9rem;
+  opacity: 0.7;
+}
+
+/* Letter container */
+.letter {
+  max-width: 720px;
+  margin: 2rem auto 3rem;
+  background: var(--paper);
+  padding: 3rem 2rem;
+  border-radius: 16px 16px 0 0;
+  transform: translateY(40px);
+  opacity: 0;
+  transition: transform 1.2s ease, opacity 1.2s ease;
+}
+
+.letter.visible {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.letter-header h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.8rem;
+  margin-bottom: 2.5rem;
+}
+
+/* Letter text */
+.letter-body p {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.15rem;
+  line-height: 1.9;
+  margin-bottom: 2rem;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.8s ease;
+}
+
+.letter-body p.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Footer */
+.letter-footer {
+  margin-top: 4rem;
+  text-align: right;
+  color: var(--text-muted);
+}
+
+.letter-footer strong {
+  display: block;
+  margin-top: 0.4rem;
+  color: var(--text-main);
+}
+
+/* Desktop tweaks */
+@media (min-width: 768px) {
+  .letter {
+    padding: 4rem;
+  }
+
+  .intro h1 {
+    font-size: 3rem;
+  }
+}
+
+/* WebKit scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/* Thumb */
+::-webkit-scrollbar-thumb {
+  background-color: rgba(255,255,255,0.25);
+  border-radius: 999px;
+}
+
+/* Hide arrows (Windows-safe way) */
+::-webkit-scrollbar-button {
+  width: 0;
+  height: 0;
+  background: transparent;
+}
