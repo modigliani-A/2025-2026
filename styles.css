@@ -92,6 +92,7 @@ body.intro-active {
   transform: translateY(40px);
   opacity: 0;
   transition: transform 1.2s ease, opacity 1.2s ease;
+  font-family: 'Cormorant Garamond', serif;
 }
 
 .letter.visible {
@@ -166,3 +167,4 @@ body.intro-active {
   height: 0;
   background: transparent;
 }
+
